@@ -1,0 +1,161 @@
+@use 'media' as bp;
+
+/*================================
+=            Variable            =
+================================*/
+:root {
+    --border_thin: 0.07rem;
+    --border_normal: 0.15rem;
+    --border_bold: 0.3rem;
+    --border_heavy: 0.6rem;
+
+    --base-duration: 0.2s;
+    --base-timing: 0.3s;
+
+    --marginBase: 1rem;
+
+    /*----------  Buttons  ----------*/
+    --buttonHeight: 2rem;
+
+    /*----------  Header  ----------*/
+    --header-height: 6vmax;
+    --headerLogoAmount: 1.2;
+    --headerLogoPadding: 0.7vmax;
+
+    /*----------  Layout  ----------*/
+    --paddingMobile: 1rem;
+    --wrapperTopTitleHeight: 6vmax;
+    --wrapperBottomHeight: 5vmax;
+    --introTitleBlockWidth: 80%;
+    --introTopBlockWidth: 60%;
+
+    --containerWidth: 50vmax;
+
+    /*----------  Container  ----------*/
+    --containerWidth: 70vmax;
+    --containerHeight: 70vh;
+
+    --containerCategoryWidth: 100%;
+    --containerCategoryHeight: 100%;
+
+    --containerQuestionHeight: 80vmin;
+
+    /*----------  Nav  ----------*/
+
+
+    /*----------  Footer  ----------*/
+}
+
+@include bp.media-up('XLarge') {
+    :root {
+        --header-height: 5vmax;
+        --headerLogoPadding: 0.5vmax;
+    }
+}
+
+@include bp.media-up('Large') {
+    :root {
+        --header-height: 5.3vmax;
+        --headerLogoPadding: 0.5vmax;
+    }
+}
+
+@include bp.media-up('Medium') {
+    :root {
+        --header-height: 7vmax;
+        --headerLogoPadding: 0.5vmax;
+
+        --containerWidth: 70vmax;
+    }
+}
+
+@include bp.media-up('Small') {
+    :root {
+        --header-height: 7vmax;
+        --headerLogoPadding: 0.7vmax;
+
+        --containerWidth: calc(100vw - 2rem);
+    }
+}
+
+/*=====  End of Variable  ======*/
+
+/*==============================
+=            Layout            =
+==============================*/
+button, i, svg {
+    transition: all var(--base-duration);
+}
+
+%input {
+    outline: none;
+    margin-bottom: 1rem;
+    font-family: var(--primary-font);
+    font-size: var(--font-size-base);
+    // text-align: center;
+    border: 0.15rem solid var(--primary);
+    border-radius: 0;
+    background-color: transparent;
+    color: var(--secondary);
+    transition: all 0.3s;
+    // -webkit-appearance: none;
+
+    &:focus {
+        background-color: var(--fourth);
+        border-color: var(--secondary);
+    }
+
+    &:focus::-webkit-input-placeholder {
+        opacity: 0;
+        transition: all 0.3s;
+    }
+
+    &:focus::-moz-placeholder {
+        opacity: 0;
+        transition: all 0.3s;
+    }
+
+    &:focus::-ms-input-placeholder {
+        opacity: 0;
+        transition: all 0.3s;
+    }
+
+    &::-webkit-input-placeholder {
+        /* WebKit browsers */
+        color: var(--secondary);
+    }
+
+    &::-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: var(--secondary);
+        opacity: 1;
+    }
+
+    &::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: var(--secondary);
+        opacity: 1;
+    }
+
+    &::-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+        color: var(--secondary);
+    }
+}
+
+select {
+    // A reset of styles, including removing the default dropdown arrow
+    appearance: none;
+    // Additional resets for further consistency
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: inherit;
+    line-height: inherit;
+}
+/*=====  End of Layout  ======*/
+

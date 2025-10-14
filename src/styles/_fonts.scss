@@ -1,0 +1,183 @@
+@use 'media' as bp;
+@use "sass:color";
+
+/*=============================
+=            Fonts            =
+=============================*/
+// @font-face {
+//     font-family: 'Great Vibes Regular';
+//     src: url('fonts/Great_Vibes/GreatVibes-Regular.woff2') format('woff2');
+//     src: url('fonts/Great_Vibes/GreatVibes-Regular.woff2') format('woff2');
+//     font-weight: 44;
+//     font-style: normal;
+//     font-display: swap;
+// }
+
+// Weight axis (typically 100-900)
+$font-weight-thin: 100;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+$font-width-condensed: 75%;
+$font-width-normal: 100%;
+$font-width-extended: 125%;
+
+:root {
+    --primary-font      : "Helvetica", sans-serif;
+    --heading-font      : "Helvetica", sans-serif;
+    --heading-font-light: "Helvetica", sans-serif;
+
+    --body-font-color: var(--third);
+    --heading-font-color: var(--secondary);
+
+    --body-font-size     : 1rem;
+    --body-font-weight   : normal;
+    --body-line-height   : 1.4;
+    --heading-line-height: 1;
+
+    --font-size-base:    var(--body-font-size);
+    --font-size-large:   calc(var(--font-size-base) + (var(--font-size-base) / 5));
+    // --font-size-small:   calc(var(--font-size-base) - (var(--font-size-base) / 5));
+    --font-size-small:   0.7vmax;
+    --font-size-h1:      calc(var(--font-size-base) + 5vmax);
+    --font-size-h2:      calc(var(--font-size-base) + 3vmax);
+    --font-size-h3:      calc(var(--font-size-base) + 1.3vmax);
+    --font-size-h4:      calc(var(--font-size-base) + 1vmax);
+    --font-size-h5:      calc(var(--font-size-base) + 0.5vmax);
+    --font-size-h6:      calc(var(--font-size-base) + 0.3vmax);
+}
+
+@include bp.media-up('XLarge') {
+    :root {
+        --font-size-small: 0.7vmax;
+    }
+}
+
+@include bp.media-up('Small') {
+    :root {
+        --font-size-small:   2.5vmin;
+    }
+}
+
+// Base fonts styles
+@mixin px($size: base, $color: light) {
+    font-family: var(--primary-font);
+    font-weight: $font-weight-regular;
+    font-stretch: $font-width-normal;
+    line-height: var(--body-line-height);
+    color: var(--body-font-color);
+
+    @if $size == base {
+        font-size: var(--font-size-base);
+    } @else if $size == large {
+        font-size: var(--font-size-large);
+    } @else if $size == small {
+        font-size: var(--font-size-small);
+
+        @include bp.media-up('XLarge') {
+            font-weight: $font-weight-medium;
+        }
+
+        @include bp.media-up('Large') {
+            font-weight: $font-weight-regular;
+            line-height: 1.2;
+        }
+    }
+
+    @if $color == light {
+        color: var(--heading-font-color);
+    } @else {
+        color: $color;
+    }
+}
+
+// Headings mixin
+@mixin hx($size, $color: light) {
+    font-family: var(--heading-font);
+    font-weight: $font-weight-regular;
+    color: var(--heading-font-color);
+    line-height: var(--heading-line-height);
+    margin-top: 0;
+    // margin-bottom: -(var(--border_thin));
+
+    @if $size == h1 {
+        font-size: var(--font-size-h1);
+    } @else if $size == h2 {
+        font-size: var(--font-size-h2);
+    } @else if $size == h3 {
+        font-size: var(--font-size-h3);
+        margin-bottom: 0;
+    } @else if $size == h4 {
+        font-size: var(--font-size-h4);
+        margin-bottom: 0;
+    } @else if $size == h5 {
+        font-size: var(--font-size-h5);
+    } @else if $size == h6 {
+        font-size: var(--font-size-h6);
+    }
+
+    @if $color == light {
+        color: var(--heading-font-color);
+    } @else {
+        color: $color;
+    }
+}
+
+h1 {
+    @include hx(h1);
+    font-weight: $font-weight-medium;
+    font-stretch: $font-width-normal;
+}
+
+h2 {
+    @include hx(h2);
+    font-weight: $font-weight-regular;
+    font-stretch: $font-width-normal;
+}
+
+h3 {
+    @include hx(h3);
+    font-weight: $font-weight-thin;
+    font-stretch: $font-width-extended;
+}
+
+h4 {
+    @include hx(h4);
+}
+
+h5 {
+    @include hx(h5);
+}
+
+h6 {
+    @include hx(h6);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    // li {
+
+    //     @include grid-media($Medium) {
+    //         font-size: var(--font-size-large;
+    //     }
+    // }
+}
+
+a {
+    color: var(--third);
+    text-decoration: none;
+    transition: all var(--base-duration);
+    outline: none;
+
+    // &:active,
+    // &:focus,
+    // &:hover {
+    //     //color: $action-color;
+    // }
+}

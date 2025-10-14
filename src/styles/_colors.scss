@@ -1,0 +1,33 @@
+@use "sass:color";
+
+$colors: (
+	primary  : #830800,
+	secondary: #f0f3bc,
+	third    : #000000,
+	fourth   : #ffffff,
+	five     : #7a97ab
+);
+
+:root {
+	@each $name, $color in $colors {
+		--#{$name}: #{$color};
+		--#{$name}-darken-5: #{color.adjust($color, $lightness: -5%)};
+		--#{$name}-darken-8: #{color.adjust($color, $lightness: -8%)};
+		--#{$name}-lighten-2: #{color.adjust($color, $lightness: 2%)};
+		--#{$name}-lighten-5: #{color.adjust($color, $lightness: 5%)};
+		--#{$name}-lighten-10: #{color.adjust($color, $lightness: 10%)};
+		--#{$name}-lighten-20: #{color.adjust($color, $lightness: 20%)};
+		--#{$name}-lighten-30: #{color.adjust($color, $lightness: 30%)};
+		--#{$name}-opacity-5: #{color.change($color, $alpha: 0.05)};
+		--#{$name}-opacity-10: #{color.change($color, $alpha: 0.1)};
+		--#{$name}-opacity-20: #{color.change($color, $alpha: 0.2)};
+		--#{$name}-opacity-30: #{color.change($color, $alpha: 0.3)};
+		--#{$name}-opacity-50: #{color.change($color, $alpha: 0.5)};
+		--#{$name}-opacity-70: #{color.change($color, $alpha: 0.7)};
+	}
+
+	--layoutBackground : var(--third);
+	--elementBackground : var(--fourth);
+	// --error : var(--third);
+	// --success : var(--fourth);
+}

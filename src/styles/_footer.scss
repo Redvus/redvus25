@@ -1,0 +1,14 @@
+@use 'media' as bp;
+@use "sass:color";
+@use 'fonts' as *;
+
+.footer {
+    // width: 100%;
+    width: var(--containerWidth);
+    min-height: var(--header-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0 auto;
+}
