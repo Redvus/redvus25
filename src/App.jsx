@@ -8,6 +8,7 @@ import './assets/fonts/fontawesome-free-7.0.0-web/scss/brands.scss';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Container from './components/Container';
+import Calendar from './components/Calendar';
 // import TestAnim from './components/TestAnim';
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
             <div className="wrapper">
                 <Container>
                     {/* <TestAnim delayed={delay} /> */}
+                    <Calendar />
                 </Container>
                 <Footer className="footer-long" />
             </div>
